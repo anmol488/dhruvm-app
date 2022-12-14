@@ -1,7 +1,13 @@
-import React from "react";
+import useAuth from "../../components/useAuth";
 
 function student() {
-  return <div>student</div>;
+  const { logout } = useAuth();
+
+  return (
+    <div>
+      <button onClick={logout}>logout</button>
+    </div>
+  );
 }
 
 export default student;
