@@ -27,15 +27,7 @@ function adminLogin() {
   return (
     <main>
       <header className="absolute top-0 z-30 flex w-full items-center justify-between p-4">
-        <div className="flex items-center justify-center md:w-1/6">
-          <div className="relative h-10 w-12">
-            <Image
-              src="https://res.cloudinary.com/dcqjb4hp2/image/upload/v1670663727/logo-dm-final_gkwnvv.png"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-        </div>
+        <div className="flex items-center justify-center md:w-1/6"></div>
 
         <div className="flex items-center justify-center gap-x-4 md:w-1/5">
           <Link href="https://www.youtube.com/c/DhruvMagodia">
@@ -50,7 +42,7 @@ function adminLogin() {
         </div>
       </header>
 
-      <section className="relative flex text-white h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
+      <section className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
         <Head>
           <title>Admin Login</title>
           <link rel="icon" href="/favicon.ico" />

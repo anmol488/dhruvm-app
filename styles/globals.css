@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply font-body text-[#232428] !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+    @apply font-body bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
   }
 }
 
