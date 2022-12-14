@@ -10,7 +10,7 @@ interface Inputs {
 }
 
 function adminLogin() {
-  const { signIn } = useAuth();
+  const { adminSignIn } = useAuth();
 
   const {
     register,
@@ -18,7 +18,7 @@ function adminLogin() {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
-    await signIn(email, password);
+    await adminSignIn(email, password);
   };
 
   return (
