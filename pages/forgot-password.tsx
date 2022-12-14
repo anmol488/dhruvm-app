@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 function forgotPassword() {
   const [email, setEmail] = useState("");
@@ -19,59 +22,85 @@ function forgotPassword() {
   };
 
   return (
-    <div className="relative flex text-white h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
-      <Head>
-        <title>Forgot Password</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <main>
+      <header className="absolute top-0 z-30 flex w-full items-center justify-between p-4">
+        <div className="flex items-center justify-center md:w-1/6">
+          <div className="relative h-10 w-12">
+            <Image
+              src="https://res.cloudinary.com/dcqjb4hp2/image/upload/v1670663727/logo-dm-final_gkwnvv.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
 
-      <Image
-        src="https://res.cloudinary.com/dcqjb4hp2/image/upload/v1671025966/bgimage_e3nums.jpg"
-        layout="fill"
-        className="-z-10 !hidden opacity-60 sm:!inline"
-        objectFit="cover"
-      />
-
-      <form
-        className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
-        onSubmit={onSubmit}
-      >
-        <h1 className="text-4xl font-semibold">Forgot Password</h1>
-        <div className="text-[gray] text-sm">
-          Want to go back?{" "}
-          <Link href="/login">
-            <button className="text-white hover:underline">Click here</button>
+        <div className="flex items-center justify-center gap-x-4 md:w-1/5">
+          <Link href="https://www.youtube.com/c/DhruvMagodia">
+            <YouTubeIcon className="icon" />
+          </Link>
+          <Link href="https://www.instagram.com/curly_chords/">
+            <InstagramIcon className="icon" />
+          </Link>
+          <Link href="https://www.facebook.com/dhruv.magodia/">
+            <FacebookIcon className="icon" />
           </Link>
         </div>
+      </header>
 
-        <div className="space-y-4">
-          <label className="inline-block w-full">
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              className="input"
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </label>
-        </div>
+      <div className="relative flex text-white h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
+        <Head>
+          <title>Forgot Password</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-        <button
-          type="submit"
-          className="w-full rounded bg-[#E50914] py-3 font-semibold"
+        <Image
+          src="https://res.cloudinary.com/dcqjb4hp2/image/upload/v1671025966/bgimage_e3nums.jpg"
+          layout="fill"
+          className="-z-10 !hidden opacity-60 sm:!inline"
+          objectFit="cover"
+        />
+
+        <form
+          className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+          onSubmit={onSubmit}
         >
-          Send Reset Link
-        </button>
-
-        {success ? (
-          <div className="text-sm text-green-500">
-            A reset link has been sent to your email...
+          <h1 className="text-4xl font-semibold">Forgot Password</h1>
+          <div className="text-[gray] text-sm">
+            Want to go back?{" "}
+            <Link href="/login">
+              <button className="text-white hover:underline">Click here</button>
+            </Link>
           </div>
-        ) : (
-          " "
-        )}
-      </form>
-    </div>
+
+          <div className="space-y-4">
+            <label className="inline-block w-full">
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                className="input"
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full rounded bg-[#E50914] py-3 font-semibold"
+          >
+            Send Reset Link
+          </button>
+
+          {success ? (
+            <div className="text-sm text-green-500">
+              A reset link has been sent to your email...
+            </div>
+          ) : (
+            " "
+          )}
+        </form>
+      </div>
+    </main>
   );
 }
 

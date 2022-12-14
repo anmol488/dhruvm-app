@@ -10,13 +10,6 @@
   }
 }
 
-@layer utilities {
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    @apply appearance-none;
-  }
-}
-
 @layer components {
   .icon {
     @apply h-6 w-6 cursor-pointer opacity-75 transition hover:opacity-100;
