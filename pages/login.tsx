@@ -32,10 +32,9 @@ function Login() {
 
   return (
     <main>
-      <header className="absolute top-0 z-30 flex w-full items-center justify-between p-4">
-        <div className="flex items-center justify-center md:w-1/6"></div>
-
-        <div className="flex items-center justify-center gap-x-4 md:w-1/5">
+      <header className="absolute">
+        <div />
+        <div className="flex items-center justify-center gap-x-4">
           <Link href="https://www.youtube.com/c/DhruvMagodia">
             <YouTubeIcon className="icon" />
           </Link>

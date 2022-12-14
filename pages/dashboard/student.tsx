@@ -1,12 +1,13 @@
+import Timings from "../../components/Timings";
 import useAuth from "../../components/useAuth";
 
 function student() {
   const { logout, loading } = useAuth();
-  const subscription = false
+  const subscription = false;
 
-  if (loading || subscription === null) return null
+  if (loading || subscription === null) return null;
 
-  // if (!subscription) return <div>Timings</div>
+  if (!subscription) return <Timings />;
 
   return (
     <div>
