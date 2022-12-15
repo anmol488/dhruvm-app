@@ -3,8 +3,8 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Enrollment from "../components/Enrollment";
-import useAuth from "../components/useAuth";
-import useEnroll from "../components/useEnroll";
+import useAuth from "../hooks/useAuth";
+import useEnroll from "../hooks/useEnroll";
 import payments from "../lib/stripe";
 
 interface Props {

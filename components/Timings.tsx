@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useAuth from "./useAuth";
+import useAuth from "../hooks/useAuth";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { Product } from "@stripe/firestore-stripe-payments";
 import Table from "./Table";

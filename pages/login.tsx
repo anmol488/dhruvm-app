@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import useAuth from "../components/useAuth";
+import useAuth from "../hooks/useAuth";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";

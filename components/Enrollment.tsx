@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { goToBillingPortal } from "../lib/stripe";
 import Loader from "./Loader";
-import useAuth from "./useAuth";
-import useEnroll from "./useEnroll";
+import useAuth from "../hooks/useAuth";
+import useEnroll from "../hooks/useEnroll";
 
 function Enrollment() {
   const { user } = useAuth();
