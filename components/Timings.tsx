@@ -4,14 +4,24 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 import { Product } from "@stripe/firestore-stripe-payments";
 import Table from "./Table";
 import { useState } from "react";
+import Loader from "./Loader";
+import { loadCheckout } from "../lib/stripe";
 
 interface Props {
   timings: Product[];
 }
 
 function Timings({ timings }: Props) {
-  const { logout } = useAuth();
-  const [selectedTime, setSelectedTime] = useState<Product | null>(timings[2])
+  const { logout, user } = useAuth();
+  const [selectedTime, setSelectedTime] = useState<Product | null>(timings[2]);
+  const [isBillingLoading, setIsBillingLoading] = useState(false);
+
+  const enrollForTiming = () => {
+    if (!user) return;
+
+    loadCheckout(selectedTime?.prices[0].id!);
+    setIsBillingLoading(true);
+  };
 
   return (
     <div>
@@ -30,23 +40,23 @@ function Timings({ timings }: Props) {
         </button>
       </header>
 
-      <main className="max-w-5xl px-5 pt-28 pb-12 transition-all md:px-10">
+      <main className="max-w-5xl mx-auto px-5 pt-28 pb-12 transition-all md:px-10">
         <h1 className="mb-3 text-3xl font-medium">
           Choose the class timings that suit your schedule
         </h1>
 
         <ul>
           <li className="flex items-center gap-x-2 text-lg">
-            <CheckIcon className="h-7 w-7 text-[#E50914]" /> Personalized
-            attention
+            <CheckIcon className="h-7 w-7 text-[#E50914]" /> Industry standard
+            teaching resources
           </li>
           <li className="flex items-center gap-x-2 text-lg">
             <CheckIcon className="h-7 w-7 text-[#E50914]" /> Comprehensive
             review of each major instrument
           </li>
           <li className="flex items-center gap-x-2 text-lg">
-            <CheckIcon className="h-7 w-7 text-[#E50914]" /> All classes are
-            online. Join from anywhere!
+            <CheckIcon className="h-7 w-7 text-[#E50914]" /> Regular homework
+            for better progress
           </li>
         </ul>
 
@@ -66,6 +76,20 @@ function Timings({ timings }: Props) {
           </div>
 
           <Table timings={timings} selectedTime={selectedTime} />
+
+          <button
+            disabled={!selectedTime || isBillingLoading}
+            className={`mx-auto w-11/12 font-semibold rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${
+              isBillingLoading && "opacity-60"
+            }`}
+            onClick={enrollForTiming}
+          >
+            {isBillingLoading ? (
+              <Loader color="dark:fill-gray-300" />
+            ) : (
+              "Enroll"
+            )}
+          </button>
         </div>
       </main>
     </div>

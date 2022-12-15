@@ -25,6 +25,7 @@ function Table({ timings, selectedTime }: Props) {
             </td>
           ))}
         </tr>
+
         <tr className="tableRow">
           <td className="tableDataTitle">No. of classes</td>
           {timings.map((timing) => (
@@ -40,6 +41,7 @@ function Table({ timings, selectedTime }: Props) {
             </td>
           ))}
         </tr>
+
         <tr className="tableRow">
           <td className="tableDataTitle">Online?</td>
           {timings.map((timing) => (
@@ -57,6 +59,7 @@ function Table({ timings, selectedTime }: Props) {
             </td>
           ))}
         </tr>
+        
         <tr className="tableRow">
           <td className="tableDataTitle">Personalized?</td>
           {timings.map((timing) => (

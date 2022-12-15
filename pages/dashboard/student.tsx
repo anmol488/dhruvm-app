@@ -1,6 +1,8 @@
 import { getProducts, Product } from "@stripe/firestore-stripe-payments";
+import Link from "next/link";
 import Timings from "../../components/Timings";
 import useAuth from "../../components/useAuth";
+import useEnroll from "../../components/useEnroll";
 import payments from "../../lib/stripe";
 
 interface Props {
@@ -8,16 +10,19 @@ interface Props {
 }
 
 const Student = ({ timings }: Props) => {
-  const { logout, loading } = useAuth();
-  const subscription = false;
+  const { logout, loading, user } = useAuth();
+  const enrollment = useEnroll(user);
 
-  if (loading || subscription === null) return null;
+  if (loading || enrollment === null) return null;
 
-  if (!subscription) return <Timings timings={timings} />;
+  if (!enrollment) return <Timings timings={timings} />;
 
   return (
     <div>
       <button onClick={logout}>logout</button>
+      <Link href="/info">
+        <button>student info</button>
+      </Link>
     </div>
   );
 };
