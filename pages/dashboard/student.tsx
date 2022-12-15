@@ -1,4 +1,5 @@
 import { getProducts, Product } from "@stripe/firestore-stripe-payments";
+import Head from "next/head";
 import Link from "next/link";
 import Timings from "../../components/Timings";
 import useAuth from "../../hooks/useAuth";
@@ -19,10 +20,15 @@ const Student = ({ timings }: Props) => {
 
   return (
     <div>
+      <Head>
+        <title>Student Dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <header>
         <Link href="/info">
           <button className="rounded bg-[#E50914] p-3 font-semibold">
-            Student Dashboard
+            Student Info
           </button>
         </Link>
 
