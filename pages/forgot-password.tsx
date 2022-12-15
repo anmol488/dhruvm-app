@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import { auth } from "../firebase";
+import { auth } from "../lib/firebase";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -24,7 +24,7 @@ function forgotPassword() {
   return (
     <main>
       <header className="absolute">
-        <div/>
+        <div />
         <div className="flex items-center justify-center gap-x-4">
           <Link href="https://www.youtube.com/c/DhruvMagodia">
             <YouTubeIcon className="icon" />
