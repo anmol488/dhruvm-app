@@ -22,7 +22,7 @@ const Student = ({ timings }: Props) => {
       <header>
         <Link href="/info">
           <button className="rounded bg-[#E50914] p-3 font-semibold">
-            Student Info
+            Student Dashboard
           </button>
         </Link>
 
@@ -34,7 +34,13 @@ const Student = ({ timings }: Props) => {
         </button>
       </header>
 
-      <main></main>
+      <main className="max-w-5xl mx-auto px-5 pt-28 pb-12 transition-all md:px-10">
+        <Link href="/dashboard/student/announcements">
+          <h1 className="mb-10 text-3xl font-medium hover:underline">
+            Click to view your announcements
+          </h1>
+        </Link>
+      </main>
     </div>
   );
 };
